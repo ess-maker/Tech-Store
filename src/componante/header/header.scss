@@ -1,0 +1,56 @@
+@import "../../sass/abstracts/colors";
+
+.two {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.header {
+    display: flex;
+    align-items: center;
+    padding-left: 17rem;
+    justify-content: space-between;
+    padding-right: 2.87rem;
+    border-bottom:solid 0.0625rem  rgba(0, 0, 0, 0.13) ;
+    .shearchbar {
+        display: flex;
+    align-items: center;
+    .first {
+        margin: .5rem 1rem .5rem 0;
+        position: relative;
+        .bar {
+display: inline-flex;
+padding: 0.0625rem 0rem 0.0625rem 0.5rem;
+justify-content: flex-end;
+align-items: center;
+width: 30rem;
+height: 2.4rem;
+}
+.shearch {
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding:0.4375rem 1.25rem;;
+    border-radius: 0rem 0.125rem 0.125rem 0rem;
+border-left: 1px solid rgba(0, 0, 0, 0.22);
+background:rgba(0, 0, 0, 0.02);
+color: map-get($colors, black_AA );
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+    }
+    }
+
+    .user {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    * {
+        cursor: pointer;
+    }
+    }
+}

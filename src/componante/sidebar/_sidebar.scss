@@ -1,0 +1,61 @@
+@use "../../sass/abstracts/colors";
+@import "../../sass/abstracts/typegraphy";
+.handler {
+  display: flex;
+  align-items: start;
+}
+.Sidebar {
+  width: 14rem;
+  height: 45rem;
+  .first {
+    display: flex;
+    align-items: center;
+    margin: 1rem 4.4rem 1.81rem 1.25rem;
+    gap: .75rem;
+    .youtube_menu {
+      cursor: pointer;
+      width: 1.375rem;
+      height: 1.375rem;
+    }
+  }
+  .sidebar_list {
+    padding-right: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom:solid #00000013  0.0625rem;
+    @for $i from 0 to 9 {
+      .list#{$i} {
+        display: flex;
+        align-items: center;
+        width: 12.5rem;
+        padding: .5rem  0rem .5rem 1.5rem ;
+        gap: 1.5rem;
+        cursor: pointer;
+        transition: .5s;
+        :hover {
+          background-color: #00000010 ;
+        }
+        @if $i == 3 {
+          padding-bottom: 1rem;
+          border-bottom:solid #00000013  0.0625rem;
+        }
+        @else if $i == 4  {
+          padding-top: 1rem;
+        }
+        .link_list {
+          @include link ; 
+
+        }
+      }
+    }
+  }
+  .subtube {
+    padding: 1.13rem  0rem 1.13rem 1.5rem ;
+    .subtube_titel {
+color: map-get($colors , primery);
+font-size: 0.8125rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+    }
+}
+}
