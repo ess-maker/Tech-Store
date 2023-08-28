@@ -1,0 +1,17 @@
+@mixin center_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin between_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin prefix($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -o-#{$property}: $value;
+    -ms-#{$property}: $value;
+    $property: $value;
+  }
