@@ -1,0 +1,248 @@
+@import "../../sass/abstracts/colors";
+
+$gradientColor1: #560bad;
+$gradeintColor2: #8e60c4;
+$formBackgroundColor: #300169;
+$pinkOutline: #a31a6a;
+$loginButtonColor: rgb(96, 196, 96);
+$loginButtonTextColor: white;
+$newAccountButtonColor: #ffd60a;
+$newAccountButtonTextColor: rgb(36, 34, 34);
+$inputBackgroundColor: #2b045c;
+$inputPlaceholderColor: rgba(255, 255, 255, 0.548);
+$loginWithAccountsTextColor: white;
+$inputTextColor: white;
+$forgetHoverColor: white;
+
+@mixin buttonStyles( $fontColor) {
+  padding: 0.8rem 1.5rem;
+  width: 22rem;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+  font-size: medium;
+  background-color: map-get($colors, ligt_red );
+  color: map-get($colors, primery );
+  cursor: pointer;
+  transition: background 0.5s;
+  &:hover {
+    background: darken(#CC0000, 70%)
+      radial-gradient(circle, transparent 1%, darken(#CC0000, 70%) 1%)
+      center/15000%;
+      color: white;
+  }
+  &:active {
+    background-color: #CC0000;
+    background-size: 100%;
+    transition: background 0s;
+    color: white;
+
+  }
+}
+
+@mixin enableFlex($direction: false) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @if $direction {
+    flex-direction: column;
+  }
+  gap: .5rem;
+}
+body {
+  background-color: map-get($colors,black_47 );
+  @include enableFlex();
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.container {
+  box-shadow: 10px 4px 64px 5px rgba(0, 0, 0, 0.05);
+  border: 0.5px solid #878787;
+  max-height:80vh;
+  max-width: 35vw;
+  padding:2rem 5rem  ;
+  position: relative;
+  border-radius: 1rem 2rem 1rem 2rem ;
+  background: #FFF;
+  box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
+  .section-one {
+      height: 80%;
+    .social-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      position: relative;
+      height: 20%;
+      cursor: pointer;
+      .facebook {
+        @include enableFlex();
+        span {
+          width: 52%;
+          color: map-get($colors, primery );
+          font-size: 1rem;
+          padding-right: 0.4rem;
+        }
+        .icon {
+          height: 6rem;
+          width: 6.5rem;
+          border-radius: 100%;
+          border: map-get($colors,ligt_red) 0.1rem solid;
+          @include enableFlex();
+          cursor: pointer;
+          img {
+            height: 4rem;
+          }
+        }
+      }
+      .twitter {
+        @include enableFlex();
+        .icon {
+          height: 6rem;
+          width: 6.3rem;
+          border-radius: 100%;
+          border: map-get($colors,ligt_red ) 0.1rem solid;
+          @include enableFlex();
+          img {
+            height: 4rem;
+          }
+        }
+      }
+    }
+    .main-form {
+      @include enableFlex(true);
+    }
+  }
+  button {
+    @include buttonStyles( $loginButtonTextColor);
+  }
+  a {
+    text-decoration: none;
+    @include enableFlex();
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.60);
+    margin-bottom: 2rem;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      color: map-get($colors, ligt_red );
+    }
+  }
+  .section-two {
+    height: 20%;
+    @include enableFlex();
+    button {
+      @include buttonStyles( $newAccountButtonTextColor);
+    }
+  }
+}
+.container::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -10rem;
+  width: 800%;
+  height: 100%;
+  background-color:#CC0000;
+  transform: translateX(-50%) skew(0, -10deg);
+  border-radius: 50%;
+  z-index: -1;
+  animation: waving 5s ease-in-out infinite alternate;
+}
+
+@keyframes waving {
+  from {
+    transform: translateX(-50%) skew(-10deg , 0);
+  }
+  to {
+    transform: translateX(-30%) skew(0 , 10deg);
+  }
+}
+.main-form{
+  .custom-file-upload {
+    display: inline-flex;
+    color: white;
+padding: 1.125rem 5rem;
+justify-content: center;
+align-items: center;
+gap: 0.9375rem;
+cursor: pointer;
+margin-right: auto;
+    background: linear-gradient(90deg, #ED57B0 0%, #FC6767 100%);
+box-shadow: 0px 4px 15px 0px rgba(46, 46, 46, 0.15);
+margin-bottom: 1rem;
+    .file-input {
+      display: none;
+    }
+  }
+ input {
+  padding: 0.8rem 1rem;
+  width: 100%;
+  border-radius: 0.2rem;
+  color: map-get($colors, primery );
+  margin-bottom: 0.8rem;
+  font-size: large;
+  &::placeholder {
+    color: map-get($colors, primery );
+  }
+}
+}
+.main-form input[file] {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    height: 35rem;
+    .section-one {
+      .social-links {
+        .facebook {
+          left: -8.2rem;
+          span {
+            font-size: small;
+            padding-right: 0.9rem;
+          }
+          .icon {
+            height: 4rem;
+            width: 4rem;
+            border-radius: 100%;
+            img {
+              height: 3rem;
+            }
+          }
+        }
+        .twitter {
+          right: -10rem;
+          span {
+            font-size: small;
+          }
+          .icon {
+            height: 4rem;
+            width: 4rem;
+            border-radius: 100%;
+            img {
+              height: 3rem;
+            }
+          }
+        }
+      }
+      .main-form {
+        input {
+          width: 15rem;
+        }
+        button {
+          width:100%;
+        }
+      }
+    }
+    .section-two {
+      button {
+        width: 15rem;
+      }
+    }
+  }
+}

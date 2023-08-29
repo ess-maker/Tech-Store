@@ -6,6 +6,11 @@ interface SidebarItem {
     img: string;
 }
 
+interface suggtion {
+    id: Number;
+    name: string;
+}
+
 export const sidebar:SidebarItem[] = [
     {
         id:"home",
@@ -51,5 +56,62 @@ export const sidebar:SidebarItem[] = [
         id:"pop",
         link : "Pop",
         img:assets.Pop
+    },
+  ]
+
+  export const suggtion:suggtion[] = [
+      {
+          id:0,
+          name : "All",
+      },
+    {
+        id:1,
+        name : "Home",
+    },
+    {
+        id:2,
+        name : "UX",
+    },
+    {
+        id:3,
+        name : "Case Study",
+    },
+
+     {
+        id:4,
+        name : "Music",
+    },
+    {
+        id:5,
+        name : "Bnagla Lofi",
+    },
+    {
+        id:6,
+        name : "Tour",
+    },
+
+    {
+        id:7,
+        name : "Saintmartin",
+    },
+    {
+        id:8,
+        name : "Saintmartin",
+    },
+    {
+        id:9,
+        name : "Saintmartin",
+    },
+    {
+        id:10,
+        name : "Saintmartin",
+    },
+    {
+        id:11,
+        name : "Saintmartin",
+    },
+    {
+        id:12,
+        name : "Saintmartin",
     },
   ]
