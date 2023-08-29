@@ -3,6 +3,12 @@ import Carsoul from "./Carsoul"
 import "./header.scss"
 
 const Header = () => {
+
+    fetch('http://localhost:8000/api.php')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data.message);
+  });
   return (
     <div className="two">
     <div className="header">
@@ -17,6 +23,7 @@ const Header = () => {
               <img src={assets.addvidoi} alt="addvidoi" />
               <img src={assets.alret} alt="alret" />
           </div>
+          
       </div>
       <Carsoul />
       </div>

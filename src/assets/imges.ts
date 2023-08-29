@@ -14,6 +14,9 @@ import micrphone from "./micrphone.svg"
 import shearch from "./shearch.svg"
 import alret from "./alret.svg"
 import addvidoi from "./addvidoi.svg"
+import twitterLogo from "./twitterLogo.svg"
+import facebookLogo from "./facebookLogo.svg"
+
 
 
 
@@ -33,6 +36,8 @@ show ,
 micrphone ,
 shearch ,
 alret ,
-addvidoi
+addvidoi,
+twitterLogo,
+facebookLogo
 }
 export default assets;
