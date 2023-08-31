@@ -1,14 +1,18 @@
+import { useState } from "react";
 import assets from "../../assets/imges"
+import Addvideo from "./Addvideo";
 import Carsoul from "./Carsoul"
 import "./header.scss"
+import Vidos from "../youtube_vidos/Vidos";
 
-const Header = () => {
+const Header = () :JSX.Element =>  {
+  const [toggol , settoggol] = useState<boolean>(false)
 
-    fetch('http://localhost:8000/api.php')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data.message);
-  });
+  const handelshow = () => {
+    settoggol(prev => (!prev))
+  }
+
+
   return (
     <div className="two">
     <div className="header">
@@ -20,12 +24,18 @@ const Header = () => {
               <img src={assets.micrphone} alt="micrphone" />
           </div>
           <div className="user">
-              <img src={assets.addvidoi} alt="addvidoi" />
+            <div className="addvidoi">
+              <img onClick={handelshow} src={assets.addvidoi} alt="addvidoi" />
+              <Addvideo show = {toggol} />
+            </div>
+            <div>
               <img src={assets.alret} alt="alret" />
+            </div>
           </div>
           
       </div>
       <Carsoul />
+      <Vidos />
       </div>
   )
 }

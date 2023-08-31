@@ -115,3 +115,14 @@ export const sidebar:SidebarItem[] = [
         name : "Saintmartin",
     },
   ]
+
+ export const addvideo =  [
+    {
+        img:assets.Your_vidois,
+        titel:"Upload video",
+    },
+    {
+        img:assets.live,
+        titel:"Go live",
+    }
+ ] 

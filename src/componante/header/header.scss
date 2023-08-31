@@ -8,13 +8,11 @@
 .header {
     display: flex;
     align-items: center;
-    padding-left: 17rem;
-    justify-content: space-between;
-    padding-right: 2.87rem;
     border-bottom:solid 0.0625rem  rgba(0, 0, 0, 0.13) ;
     .shearchbar {
         display: flex;
     align-items: center;
+    margin-left: 17rem;
     .first {
         margin: .5rem 1rem .5rem 0;
         position: relative;
@@ -49,8 +47,13 @@ line-height: normal;
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    margin-left: auto;
+    margin-right: 3rem;
     * {
         cursor: pointer;
+    }
+    .addvidoi {
+        position: relative;
     }
     }
 }

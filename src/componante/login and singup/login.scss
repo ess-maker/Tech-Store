@@ -50,11 +50,8 @@ $forgetHoverColor: white;
   gap: .5rem;
 }
 body {
-  background-color: map-get($colors,black_47 );
-  @include enableFlex();
-  width: 100%;
-  height: 100vh;
   position: relative;
+  background-color: map-get($colors,black_47 );
   overflow: hidden;
 }
 
@@ -62,13 +59,15 @@ body {
 .container {
   box-shadow: 10px 4px 64px 5px rgba(0, 0, 0, 0.05);
   border: 0.5px solid #878787;
-  max-height:80vh;
-  max-width: 35vw;
-  padding:2rem 5rem  ;
-  position: relative;
+  height:65vh;
+  max-width: 25vw;
+  margin: auto;
+  margin-top: 8rem;
+  padding:  0 15rem;
   border-radius: 1rem 2rem 1rem 2rem ;
   background: #FFF;
   box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
+  @include enableFlex;
   .section-one {
       height: 80%;
     .social-links {
@@ -179,17 +178,19 @@ margin-bottom: 1rem;
       display: none;
     }
   }
- input {
-  padding: 0.8rem 1rem;
-  width: 100%;
-  border-radius: 0.2rem;
-  color: map-get($colors, primery );
-  margin-bottom: 0.8rem;
-  font-size: large;
-  &::placeholder {
-    color: map-get($colors, primery );
+  .input-form {
+    input {
+     padding: 0.8rem 1rem;
+     width: 100%;
+     border-radius: 0.2rem;
+     color: map-get($colors, primery );
+     margin-bottom: 0.8rem;
+     font-size: large;
+     &::placeholder {
+       color: map-get($colors, primery );
+     }
+   }
   }
-}
 }
 .main-form input[file] {
   width: 100%;

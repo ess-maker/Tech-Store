@@ -1,0 +1,27 @@
+@import "../../sass//abstracts/typegraphy";
+.Addvideo {
+    border-radius: 0.75rem;
+    position: absolute;
+    top: 2rem;
+    left:-4rem;
+    background-color: white;
+    box-shadow: 0 9px 20px 11px rgb(195 186 186 / 15%);
+    width: 10rem;
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .pop {
+        display: flex;
+        transition: .5s;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem ;
+        .pop_titel {
+            @include link
+        }
+        .pop:hover {
+            background-color: red;
+        }
+    }
+}
