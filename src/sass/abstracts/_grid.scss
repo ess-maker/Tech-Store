@@ -1,0 +1,21 @@
+$gridcolums:4;
+
+@mixin grid-column {
+    @for $i from 1 through $gridcolums {
+        .col-#{$i} {
+            width: percentage($i / $gridcolums);
+        }
+    }
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-flow:row wrap;
+}

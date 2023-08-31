@@ -16,6 +16,8 @@ import alret from "./alret.svg"
 import addvidoi from "./addvidoi.svg"
 import twitterLogo from "./twitterLogo.svg"
 import facebookLogo from "./facebookLogo.svg"
+import live from "./live.svg"
+import Image from "./Image.png"
 
 
 
@@ -38,6 +40,8 @@ shearch ,
 alret ,
 addvidoi,
 twitterLogo,
-facebookLogo
+facebookLogo,
+live,
+Image
 }
 export default assets;

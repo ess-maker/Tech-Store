@@ -1,9 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { router } from './routring/route.tsx';
-import {RouterProvider,} from "react-router-dom";
+import {RouterProvider,createBrowserRouter} from "react-router-dom";
 import "./sass/base/_reset.scss"
+import Sidebar from "./componante/sidebar/Sidebar";
+import Login from "./componante/login and singup/Login";
+import Singup from "./componante/login and singup/Singup";
 
+export const router = createBrowserRouter([
+{
+  path: "/",
+  element: <Sidebar />,
+},
+{
+  path: "/login",
+  element: <Login />,
+  
+},
+{
+  path: "signup",
+  element: <Singup />
+}
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

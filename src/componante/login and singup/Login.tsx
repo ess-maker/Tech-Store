@@ -51,7 +51,11 @@ const Login = () => {
               <a href="#">I forgot my password?</a>
               <button type="submit" onClick={handleSubmit} >Submit</button>
           </form>
-          <Link to="singup"> <button>Create New Account</button> </Link>
+          <Link to="/signup">
+          <button>
+          Create New Account
+          </button>
+          </Link>
       </div>
   </div>
           </>

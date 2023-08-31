@@ -4,8 +4,8 @@ const Carsoul = () => {
   return (
     <div className="Carsoul">
         <ul className="Carsoul_list">
-          {suggtion.map(ele => (
-            <li className="Carsoul_item">{ele.name}</li>
+          {suggtion.map((ele , index) => (
+            <li key={index} className="Carsoul_item">{ele.name}</li>
           ))}
         </ul>
     </div>
