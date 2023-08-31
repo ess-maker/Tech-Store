@@ -1,0 +1,191 @@
+/* Center the container vertically */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#root div h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}.custom-message {
+    width: 85px;
+    position: relative;
+    top: 27px;
+    font-size: 15px;
+}
+/* Container */
+.signup-container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+    width: 350px;
+}
+
+/* Form elements */
+.signup-container h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.signup-container p {
+    text-align: center;
+    color: #f00;
+}
+
+.signup-container label {
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+.profile-image-label {
+    margin-bottom: 0px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"],
+.signup-container input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button style */
+.signup-container button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4285F4; /* Google blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif; /* Use Google's Roboto font or a similar sans-serif font */
+    text-transform: uppercase; /* Uppercase text like Google */
+}
+
+.signup-container button[type="submit"]:hover {
+    background-color: #357AE8; /* Darker blue on hover */
+}
+
+/* Link style */
+.signup-container a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #4285F4; /* Google blue */
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif; /* Use Google's Roboto font or a similar sans-serif font */
+    text-transform: uppercase; /* Uppercase text like Google */
+}
+
+.signup-container a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+/* Media Queries */
+@media (max-width: 767px) {
+    .signup-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .signup-container h1 {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .signup-container {
+        max-width: 600px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .signup-container {
+        max-width: 800px;
+    }
+}
+
+.profile-image-label {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+    overflow: hidden;
+    margin-right: 10px;
+    border: solid;
+}
+
+.profile-image-wrapper {
+    position: relative;
+}
+
+.preview-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: none;
+}
+
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+.profile-image-text {
+    font-weight: bold;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+#pimg {
+    display: none;
+}
