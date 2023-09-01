@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import './signup.css';
+import assets from '../../assets/imges';
 
 function SignUpForm() {
   const [username, setUsername] = useState('');
@@ -9,7 +10,7 @@ function SignUpForm() {
   const [name, setName] = useState('');
   const [lastname, setLastname] = useState('');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [previewImage, setPreviewImage] = useState<string | null>('./unknown-person-icon-27.jpg');
+  const [previewImage, setPreviewImage] = useState<string | null>(assets.unknown);
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
