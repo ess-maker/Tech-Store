@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react"
-import assets from "../../assets/imges"
-import "./login.scss"
+import "./signup.css"
 import { Link } from "react-router-dom";
 interface FormData {
     email: string;
@@ -30,35 +29,25 @@ const Login = () => {
   };
 
   return (
-    <>
-    <div className="container">
-          <div className="section-one">
-              <div className="social-links">
-                  <div className="facebook">
-                      <div className="icon">
-                          <img src={assets.facebookLogo} alt="" />
-                      </div>
-                  </div>
-                  <div className ="twitter">
-                  <div className="icon">
-                      <img src={assets.twitterLogo} alt="" />
-                  </div>
-                                </div>
-          </div>
-          <form onSubmit={handleSubmit} className="main-form" action="" method="post">
-              <input onChange={handleChange} type="email" name="email" placeholder="Email" />
-              <input onChange={handleChange} type="password" name="password" placeholder="Password" />
-              <a href="#">I forgot my password?</a>
-              <button type="submit" onClick={handleSubmit} >Submit</button>
-          </form>
-          <Link to="/signup">
-          <button>
-          Create New Account
-          </button>
-          </Link>
-      </div>
+    <div>
+    <h1>Login</h1>
+
+    <form className='signup-container' onSubmit={handleSubmit}>
+      <label htmlFor='pimg' className='profile-image-label'>
+      </label>
+      <br />
+      <label>Email:</label>
+      <input onChange={handleChange} className='email-input' type="email"/>
+      <br />
+      <label>Password:</label>
+      <input onChange={handleChange} className='password-input' type="password" />
+      <br />
+      <Link to="../"> <p className="alrady_singup">Not Sign Up ? Login</p></Link>      
+      <button className='submit-button' type="submit">
+        Login
+      </button>
+    </form>
   </div>
-          </>
   )
 }
 

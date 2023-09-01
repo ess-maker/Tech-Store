@@ -42,9 +42,10 @@ body {
 }
 
 .signup-container label {
-    margin-bottom: 0px;
     font-weight: bold;
+    margin-bottom: .5rem;
 }
+
 .profile-image-label {
     margin-bottom: 0px;
     font-weight: bold;
@@ -188,4 +189,22 @@ body {
 
 #pimg {
     display: none;
+}
+
+.first-name-input , .password-input ,  .email-input , .username-input {
+    margin-bottom: 1rem  !important;
+}
+
+input {
+    margin-top: .5rem;
+}
+
+.alrady_singup {
+    color: black !important;
+    margin-bottom: 1rem;
+    text-align: left !important;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+    text-transform: capitalize !important;
 }

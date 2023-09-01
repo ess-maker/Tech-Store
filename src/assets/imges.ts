@@ -18,6 +18,7 @@ import twitterLogo from "./twitterLogo.svg"
 import facebookLogo from "./facebookLogo.svg"
 import live from "./live.svg"
 import Image from "./Image.png"
+import unknown from "./unknown.jpg"
 
 
 
@@ -42,6 +43,7 @@ addvidoi,
 twitterLogo,
 facebookLogo,
 live,
-Image
+Image,
+unknown
 }
 export default assets;
