@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import './signup.css';
 import assets from '../../assets/imges';
@@ -13,6 +13,7 @@ function SignUpForm() {
   const [previewImage, setPreviewImage] = useState<string | null>(assets.unknown);
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [form, setform] = useState<string>(' ');
 
   const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
@@ -47,11 +48,29 @@ function SignUpForm() {
     }
   };
 
+
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    
+    if (username === "" ) {
+      setform ('username is empty')
+    }
+    else if (previewImage === assets.unknown) {
+    setform ('Image is empty')
+    } else if ( email === "" ) {
+      setform ('email is empty')
+    } 
+    else if (password === "") {
+      setform ('password is empty')
+    } 
+    else if (lastname === "") {
+      setform ('lastname is empty')
+    } 
+    else {
 
     setIsLoading(true);
-
+    
     const formData = new FormData();
     formData.append('username', username);
     formData.append('email', email);
@@ -62,71 +81,69 @@ function SignUpForm() {
       formData.append('img', selectedFile);
     }
 
-    try {
-      const response = await axios.post('http://localhost:8000/signup.php', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      if (response.data.error) {
-        console.log("error");
-      } else {
-        setMessage(response.data.message);
-        console.log(response.data.message);
+      try {
+        const response = await axios.post('http://localhost:8000/signup.php', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+        if (response.data.error) {
+          console.log("error");
+        } else {
+          setMessage(response.data.message); 
+          console.log(response.data);                  
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
-    }
+      
+      setIsLoading(false);
+      
+      // Clear form fields
+      setUsername('');
+      setEmail('');
+      setPassword('');
+      setName('');
+      setLastname('');
+      setSelectedFile(null);
+      setPreviewImage(assets.unknown);
 
-    setIsLoading(false);
-
-    // Clear form fields
-    setUsername('');
-    setEmail('');
-    setPassword('');
-    setName('');
-    setLastname('');
-    setSelectedFile(null);
-    setPreviewImage('./unknown-person-icon-27.jpg');
   };
+}
 
   return (
-    <div>
+    <div className='container'>
       <h1>Sign Up</h1>
-
       <form className='signup-container' encType='multipart/form-data' onSubmit={handleSubmit}>
-        <p>{message}</p>
-        <label htmlFor='pimg' className='profile-image-label'>
+        {form.length > 1 && <p className='worning'>{form}</p>}
+        <label htmlFor='pimg' className= 'profile-image-label'>
           <div className='profile-image-container'>
             <div className={`profile-image-wrapper ${isLoading ? 'loading' : ''}`}>
               <div className='loading-spinner'></div>
-              {isLoading ? (
-                <div className='loading-message'>Loading...</div>
-              ) : (
-                <img id='preview-image' className='preview-image' src={previewImage || './unknown-person-icon-27.jpg'} alt='Preview' />
-              )}
+                <img id='preview-image' className='preview-image' src={previewImage || assets.unknown} alt='Preview' />
             </div>
           </div>
         </label>
-        <input required id='pimg' className='profile-image-input' type="file" onChange={handleFileChange} />
+        <input  id='pimg' className={`profile-image-input`} type="file" onChange={handleFileChange} />
         <label htmlFor='uinput'>Username:</label>
-        <input id='uinput' className='username-input' type="text" value={username} onChange={handleUsernameChange} />
+        <input id='uinput' className={`username-input ${username.length > 0 && email.length <  6 ? "active" : null}`} type="text" value={username} onChange={handleUsernameChange} />
         <br />
         <label>Email:</label>
-        <input className='email-input' type="email" value={email} onChange={handleEmailChange} />
+        <input className={`email-input ${email.length > 0 && email.length <  6 ? "active" : null}`} type="email" value={email} onChange={handleEmailChange} />
         <br />
         <label>Password:</label>
-        <input className='password-input' type="password" value={password} onChange={handlePasswordChange} />
+        <input className={`password-input ${password.length > 0 && email.length <  6 ? "active" : null}`} type="password" value={password} onChange={handlePasswordChange} />
         <br />
         <label>First Name:</label>
-        <input className='first-name-input' type="text" value={name} onChange={handleNameChange} />
+        <input className={`first-name-input ${name.length > 0 && email.length <  6 ? "active" : null}`} type="text" value={name} onChange={handleNameChange} />
         <br />
         <label>Last Name:</label>
-        <input className='last-name-input' type="text" value={lastname} onChange={handleLastnameChange} />
+        <input className={`last-name-input ${lastname.length > 0 && email.length <  6 ? "active" : null}`} type="text" value={lastname} onChange={handleLastnameChange} />
         <br />
         <br />
+      {message && <p className='message'>{message}</p>}
         <button className='submit-button' type="submit">
-          Sign Up
+          {isLoading ?" Loading ..." : "Sign Up"}
         </button>
       </form>
     </div>
