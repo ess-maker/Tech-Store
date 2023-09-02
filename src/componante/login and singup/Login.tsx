@@ -1,15 +1,18 @@
-import { FormEvent, useState } from "react"
-import "./signup.css"
+import { FormEvent, useState } from "react";
+import "./signup.css";
 import { Link } from "react-router-dom";
+
 interface FormData {
-    email: string;
-    password: string;
-  }
+  email: string;
+  password: string;
+}
+
 const Login = () => {
-    const [formData, setFormData] = useState<FormData>({
-        email: "",
-        password: ""
-      });
+  const [formData, setFormData] = useState<FormData>({
+    email: "",
+    password: ""
+  });
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // Handle form submission
@@ -30,25 +33,36 @@ const Login = () => {
 
   return (
     <div>
-    <h1>Login</h1>
+      <h1>Login</h1>
 
-    <form className='signup-container' onSubmit={handleSubmit}>
-      <label htmlFor='pimg' className='profile-image-label'>
-      </label>
-      <br />
-      <label>Email:</label>
-      <input onChange={handleChange} className='email-input' type="email"/>
-      <br />
-      <label>Password:</label>
-      <input onChange={handleChange} className='password-input' type="password" />
-      <br />
-      <Link to="../"> <p className="alrady_singup">Not Sign Up ? Login</p></Link>      
-      <button className='submit-button' type="submit">
-        Login
-      </button>
-    </form>
-  </div>
-  )
-}
+      <form className="signup-container" onSubmit={handleSubmit}>
+        <label>Email:</label>
+        <input
+          onChange={handleChange}
+          className="email-input"
+          type="email"
+          name="email" // Add the name attribute
+          value={formData.email} // Bind the input value to the state
+        />
+        <br />
+        <label>Password:</label>
+        <input
+          onChange={handleChange}
+          className="password-input"
+          type="password"
+          name="password" // Add the name attribute
+          value={formData.password} // Bind the input value to the state
+        />
+        <br />
+        <Link to="../">
+          <p className="alrady_singup">Not Signed Up? Register</p>
+        </Link>
+        <button className="submit-button" type="submit">
+          Login
+        </button>
+      </form>
+    </div>
+  );
+};
 
-export default Login
+export default Login;

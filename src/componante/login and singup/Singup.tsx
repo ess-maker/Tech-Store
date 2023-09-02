@@ -108,7 +108,7 @@ function SignUpForm() {
       setSelectedFile(null);
       setPreviewImage(assets.unknown);
 
-  };
+  }
 }
 
   return (
