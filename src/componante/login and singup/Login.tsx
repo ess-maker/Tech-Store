@@ -1,17 +1,16 @@
-import React, { FormEvent, useState } from "react";
-import axios from 'axios';
+import { FormEvent, useState } from "react"
+import "./signup.css"
 import { Link } from "react-router-dom";
-import "./signup.css";
-
+interface FormData {
+    email: string;
+    password: string;
+  }
 const Login = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const Loginurl = 'http://localhost:8000/login.php'
-  const [formData, setFormData] = useState({
-    email: "",
-    password: ""
-  });
-
-  const handleSubmit = async (e: FormEvent) => {
+    const [formData, setFormData] = useState<FormData>({
+        email: "",
+        password: ""
+      });
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     setIsLoading(true)
@@ -38,34 +37,25 @@ const Login = () => {
 
   return (
     <div>
-      <h1>Login</h1>
-      <form className="signup-container" onSubmit={handleSubmit}>
-        <label htmlFor="pimg" className="profile-image-label"></label>
-        <br />
-        <label>Email:</label>
-        <input
-          onChange={handleChange}
-          className="email-input"
-          type="email"
-        />
-        <br />
-        <label>Password:</label>
-        <input
-          onChange={handleChange}
-          className="password-input"
-          type="password"
-        />
-        <br />
-        <Link to="../">
-          <p className="alrady_singup">Not Sign Up ? Login</p>
-        </Link>
-        <button className="submit-button" type="submit">
-          {`${isLoading ?"loding...":"Login"}`}
-          Login
-        </button>
-      </form>
-    </div>
-  );
-};
+    <h1>Login</h1>
 
-export default Login;
+    <form className='signup-container' onSubmit={handleSubmit}>
+      <label htmlFor='pimg' className='profile-image-label'>
+      </label>
+      <br />
+      <label>Email:</label>
+      <input onChange={handleChange} className='email-input' type="email"/>
+      <br />
+      <label>Password:</label>
+      <input onChange={handleChange} className='password-input' type="password" />
+      <br />
+      <Link to="../"> <p className="alrady_singup">Not Sign Up ? Login</p></Link>      
+      <button className='submit-button' type="submit">
+        Login
+      </button>
+    </form>
+  </div>
+  )
+}
+
+export default Login
