@@ -1,16 +1,11 @@
-/* Center the container vertically */
-html,
-body {
-    height: 100%;
-}
- 
+
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100vh;
-    flex-direction: column;
+    flex-direction: column ;
 }
 .message {
     padding: .7rem 5rem;
@@ -34,11 +29,7 @@ body {
     left: 60%;
     top: 70%;
 }
-#root div h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    display: inline-block;
-}.custom-message {
+.custom-message {
     width: 85px;
     position: relative;
     top: 27px;

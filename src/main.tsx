@@ -2,14 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {RouterProvider,createBrowserRouter} from "react-router-dom";
 import "./sass/base/_reset.scss"
-import Sidebar from "./componante/sidebar/Sidebar";
 import Login from "./componante/login and singup/Login";
 import Singup from "./componante/login and singup/Singup";
+import App from './componante/App';
 
 export const router = createBrowserRouter([
 {
   path: "/",
-  element: <Sidebar />,
+  element: <App />,
 },
 {
   path: "/login",

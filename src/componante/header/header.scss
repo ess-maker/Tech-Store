@@ -3,18 +3,19 @@
 .two {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: calc(100% - 14rem);
 }
 .header {
+    justify-content: space-between;
     display: flex;
     align-items: center;
-    border-bottom:solid 0.0625rem  rgba(0, 0, 0, 0.13) ;
+    border-bottom: solid 0.0625rem rgba(0, 0, 0, 0.13);
     .shearchbar {
         display: flex;
     align-items: center;
     margin-left: 17rem;
     .first {
-        margin: .5rem 1rem .5rem 0;
+        margin:0 1rem .5rem 0;
         position: relative;
         .bar {
 display: inline-flex;
@@ -27,7 +28,7 @@ height: 2.4rem;
 .shearch {
     position: absolute;
     cursor: pointer;
-    top: 50%;
+    top: 60%;
     right: 0;
     transform: translateY(-50%);
     padding:0.4375rem 1.25rem;;
@@ -44,11 +45,10 @@ line-height: normal;
     }
 
     .user {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-left: auto;
-    margin-right: 3rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-right: 3rem;
     * {
         cursor: pointer;
     }

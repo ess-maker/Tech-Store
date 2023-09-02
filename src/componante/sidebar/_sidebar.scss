@@ -7,7 +7,8 @@
 }
 .Sidebar {
   width: 14rem;
-  height: 45rem;
+  height: 100vh;
+  }
   .first {
     display: flex;
     align-items: center;
@@ -32,15 +33,15 @@
         gap: 1.5rem;
         cursor: pointer;
         transition: .5s;
-        :hover {
+        &:hover {
           background-color: #00000010 ;
         }
         @if $i == 3 {
-          padding-bottom: 1rem;
+          margin-bottom: 1rem;
           border-bottom:solid #00000013  0.0625rem;
         }
         @else if $i == 4  {
-          padding-top: 1rem;
+          margin-top: 1rem;
         }
         .link_list {
           @include link ; 
@@ -58,5 +59,4 @@ font-style: normal;
 font-weight: 600;
 line-height: normal;
     }
-}
 }

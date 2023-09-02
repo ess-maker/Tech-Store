@@ -3,20 +3,19 @@
 
 
 .vidou_container {
-    gap: 0.75rem;
+    gap: 1rem;
     padding: 3rem 1.25rem;
-    display: grid;
+    display: flex;
     align-items: center;
     margin-left: auto;
+    justify-content: center;
     width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    flex-wrap: wrap;
     .vidou_componante {
     cursor: pointer;
     .Thumbnail {
-        width: 16.86169rem;
-        height: 10.125rem;
         margin-bottom: .63rem;
-        border-radius: 0.44375rem;
+        max-width:20rem;
     }
     .vidou_discrption {
         display: flex;
@@ -28,15 +27,14 @@ height: 1.875rem;
 border-radius: 1.875rem;
         }
         .vidou_content {
-
             .vidou_titel {
                 color: map-get($colors, primery );
-            font-size: 1.2rem;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 1.125rem;
-            margin-bottom: 0.31rem;
-            max-width: 13rem;
+                font-size: 1.1rem;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 1.300rem;
+                margin-bottom: 0.31rem;
+                max-width:14rem;
             }
             .chanel_name{
     color: map-get($colors,Youtube , black_38);
