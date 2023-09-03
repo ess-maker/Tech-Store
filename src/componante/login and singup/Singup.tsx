@@ -91,7 +91,7 @@ function SignUpForm() {
           console.log("error");
         } else {
           setMessage(response.data.message); 
-          console.log(response.data);                  
+          console.log(typeof response.data);                  
         }
       } catch (error) {
         console.error(error);

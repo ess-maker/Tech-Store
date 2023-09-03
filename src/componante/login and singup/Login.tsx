@@ -1,42 +1,43 @@
-import { FormEvent, useState } from "react"
+import { ChangeEvent, FormEvent, useState } from "react"
+import axios from "axios";
 import "./signup.css"
 import { Link } from "react-router-dom";
-interface FormData {
-    email: string;
-    password: string;
-  }
+
 const Login = () => {
-    const [formData, setFormData] = useState<FormData>({
-        email: "",
-        password: ""
-      });
+  const Loginurl:string = "http://localhost:8000/login.php"
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [mes , setmsg] = useState<string>('') 
+  const [IsLoading , setIsLoading] = useState<boolean>(false)
+      
+      const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
+      };
+    
+      const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value);
+      };
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-
+    email.length == 0 && password.length == 0 ? setmsg("form must filed out") : setmsg('');
+    
     setIsLoading(true)
 
-    console.log("Form submitted");
-    console.log("Email:", formData.email);
-    console.log("Password:", formData.password);
+    console.log("Email:", email);
+    console.log("Password:",password);
 
-    axios.post(Loginurl , {
-      email: formData.email,
-      password: formData.password,
+    axios.post(Loginurl, {
+      email: email,
+      password:password
     }).then(response => {
-      console.log(response);
+      setmsg(response.request.response.substring(260))
     })
   
 }
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));    }
-
 
   return (
-    <div>
+    <div className="login">
     <h1>Login</h1>
 
     <form className='signup-container' onSubmit={handleSubmit}>
@@ -44,12 +45,13 @@ const Login = () => {
       </label>
       <br />
       <label>Email:</label>
-      <input onChange={handleChange} className='email-input' type="email"/>
+      <input onChange={handleEmailChange} className='email-input' type="email"/>
       <br />
       <label>Password:</label>
-      <input onChange={handleChange} className='password-input' type="password" />
+      <input onChange={handlePasswordChange} className='password-input' type="password" />
+      <p> {mes} </p>
       <br />
-      <Link to="../"> <p className="alrady_singup">Not Sign Up ? Login</p></Link>      
+      <Link to="/signup"> <p className="alrady_singup">Not Sign Up ? Login</p></Link>      
       <button className='submit-button' type="submit">
         Login
       </button>
