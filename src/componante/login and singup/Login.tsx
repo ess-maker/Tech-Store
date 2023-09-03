@@ -53,7 +53,7 @@ const Login = () => {
       <br />
       <Link to="/signup"> <p className="alrady_singup">Not Sign Up ? Login</p></Link>      
       <button className='submit-button' type="submit">
-        Login
+        {IsLoading ? "loding..." : "Login"}
       </button>
     </form>
   </div>

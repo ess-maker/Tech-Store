@@ -1,0 +1,36 @@
+@import "../../sass/abstracts/colors";
+
+.user_info_container {
+    border-radius: 0.75rem;
+    position: absolute;
+    top: 2rem;
+    left:-4rem;
+    background-color: white;
+    box-shadow: 0 9px 20px 11px rgb(195 186 186 / 15%);
+    width: 12.5rem;
+    height:10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+.user_info {
+    display: flex;
+    align-items: center;
+    .user_img {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        margin-right: .75rem;
+    }
+    .user_content:first-child {
+    color:map-get($colors,primery ) ;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    margin: .5rem;
+    }
+    .user_content:last-child {
+        @extend .user_content:first-child
+    }
+}
+}

@@ -4,6 +4,7 @@ import Addvideo from "./Addvideo";
 import Carsoul from "./Carsoul"
 import "./header.scss"
 import Vidos from "../youtube_vidos/Vidos";
+import Userinfo from "./Userinfo";
 
 const Header = () :JSX.Element =>  {
   const [toggol , settoggol] = useState<boolean>(false)
@@ -30,6 +31,9 @@ const Header = () :JSX.Element =>  {
             </div>
             <div>
               <img src={assets.alret} alt="alret" />
+            </div>
+            <div>
+              <img src={assets.Shorts} alt="" />
             </div>
           </div>
           
