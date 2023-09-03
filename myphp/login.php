@@ -23,6 +23,6 @@ if ($result->num_rows == 1) {
     header('Location: ../');
     exit;
 } else {
-    echo json_encode(["message" => 'Account does not exist'], JSON_FORCE_OBJECT);
+    echo json_encode(["message" => 'Login Failed'], JSON_FORCE_OBJECT);
 }
 ?>

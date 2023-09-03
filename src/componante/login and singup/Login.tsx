@@ -1,63 +1,71 @@
-import { ChangeEvent, FormEvent, useState } from "react"
-import axios from "axios";
-import "./signup.css"
-import { Link } from "react-router-dom";
+import { useState, ChangeEvent, FormEvent } from 'react';
+import axios from 'axios';
+import './signup.css';
 
-const Login = () => {
-  const Loginurl:string = "http://localhost:8000/login.php"
+function LoginForm() { // Rename the component to LoginForm
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [mes , setmsg] = useState<string>('') 
-  const [IsLoading , setIsLoading] = useState<boolean>(false)
-      
-      const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value);
-      };
-    
-      const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.target.value);
-      };
+  const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    email.length == 0 && password.length == 0 ? setmsg("form must filed out") : setmsg('');
-    
-    setIsLoading(true)
 
-    console.log("Email:", email);
-    console.log("Password:",password);
+    setIsLoading(true);
 
-    axios.post(Loginurl, {
-      email: email,
-      password:password
-    }).then(response => {
-      setmsg(response.request.response.substring(260))
-    })
-  
-}
+    try {
+      const response = await axios.post('http://localhost:8000/login.php', {
+        email,
+        password,
+      });
+
+      if (response.data.error) {
+        setMessage('Login failed. Please check your credentials.');
+      } else {
+        setMessage('Login successful.'); // You can customize this message
+      }
+    } catch (error) {
+      console.error(error);
+      setMessage('An error occurred during login.'); // Handle error messages
+    }
+
+    setIsLoading(false);
+  };
 
   return (
-    <div className="login">
-    <h1>Login</h1>
-
-    <form className='signup-container' onSubmit={handleSubmit}>
-      <label htmlFor='pimg' className='profile-image-label'>
-      </label>
-      <br />
-      <label>Email:</label>
-      <input onChange={handleEmailChange} className='email-input' type="email"/>
-      <br />
-      <label>Password:</label>
-      <input onChange={handlePasswordChange} className='password-input' type="password" />
-      <p> {mes} </p>
-      <br />
-      <Link to="/signup"> <p className="alrady_singup">Not Sign Up ? Login</p></Link>      
-      <button className='submit-button' type="submit">
-        Login
-      </button>
-    </form>
-  </div>
-  )
+    <div className='container'>
+      <h1>Login</h1>
+      <form className='signup-container' onSubmit={handleSubmit}>
+        <label>Email:</label>
+        <input
+          className={`email-input ${email.length > 0 && email.length < 6 ? 'active' : ''}`}
+          type="email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+        <br />
+        <label>Password:</label>
+        <input
+          className={`password-input ${password.length > 0 && password.length < 6 ? 'active' : ''}`}
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        {message && <p className='message'>{message}</p>}
+        <button className='submit-button' type="submit">
+          {isLoading ? ' Loading ...' : 'Login'}
+        </button>
+      </form>
+    </div>
+  );
 }
 
-export default Login
+export default LoginForm;
